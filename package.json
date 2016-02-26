@@ -1,0 +1,14 @@
+{
+	"name" : "hichat",
+	"description" : "a realtime chat web application",
+	"version" : "0.1.0",
+	"main" : "server.js",
+	"dependencies" : {
+		"express" : "4.13.1",
+		"socket.io" : "0.9.x"
+	},
+	"engines" : {
+		"node" : "0.12.2",
+		"npm" : "2.7.4"
+	}
+}
