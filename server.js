@@ -23,8 +23,8 @@ io.on('connection', function(socket) {
 		users.splice(socket.userIndex,1);
 		socket.broadcast.emit("system",socket.nickname,users.length,"logout");
 	});
-	socket.on("postMsg",function(msg){
-		socket.broadcast.emit("newMsg",socket.nickname,msg);
+	socket.on("postMsg",function(msg,color){
+		socket.broadcast.emit("newMsg",socket.nickname,msg,color);
 	});
 	socket.on("img",function(msg){
 		socket.broadcast.emit("newImg",socket.nickname,msg);

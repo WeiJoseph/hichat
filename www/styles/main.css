@@ -106,6 +106,7 @@ html, body {
 .emoji{
     display: inline;
     width:100px;
+    margin:0;
 }
 footer {
     text-align: center;

@@ -44,11 +44,12 @@ hichat.prototype = {
 		});
 		$("#sendBtn").click(function(){
 			var msg = $("#messageInput").val();
+			var color = $("#colorStyle").val();
 			$("#messageInput").val("");
 			$("#messageInput").focus();
 			if(msg.trim().length != 0){
-				that.socket.emit("postMsg",msg);
-				that.newMsg("me",msg);
+				that.socket.emit("postMsg",msg,color);
+				that.newMsg("me",msg,color);
 			}
 			
 		});
@@ -58,8 +59,8 @@ hichat.prototype = {
 			}
 			
 		});
-		this.socket.on("newMsg",function(nickname,msg){
-			that.newMsg(nickname,msg);
+		this.socket.on("newMsg",function(nickname,msg,color){
+			that.newMsg(nickname,msg,color);
 		});
 		$("#sendImage").change(function(){
 			if($(this).prop("files").length != 0){
@@ -102,6 +103,9 @@ hichat.prototype = {
 			$("#messageInput").focus();
 			$("#messageInput").val($("#messageInput").val()+"[emoji:"+title+"]");
 		});
+		$("#clearBtn").click(function(){
+			$("#messageInput").val("");
+		})
 		
 	},
 	newMsg : function(user,msg,color){
